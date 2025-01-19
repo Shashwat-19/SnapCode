@@ -56,10 +56,29 @@ shareBtn.addEventListener('click', async (e) => {
                 alert('Failed to share the QR code.');
             }
         } else {
-            alert('Sharing is not supported on this device.');
+            showCustomShareOptions();
         }
     });
 });
+
+function showCustomShareOptions() {
+    const text = qrText.value.trim();
+    const urlEncodedText = encodeURIComponent(text);
+
+    const whatsappUrl = `https://wa.me/?text=${urlEncodedText}`;
+    const linkedinUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${urlEncodedText}`;
+    const twitterUrl = `https://twitter.com/intent/tweet?text=${urlEncodedText}`;
+
+    const shareOptionsHtml = `
+        <div class="share-options">
+            <a href="${whatsappUrl}" target="_blank">Share on WhatsApp</a><br>
+            <a href="${linkedinUrl}" target="_blank">Share on LinkedIn</a><br>
+            <a href="${twitterUrl}" target="_blank">Share on Twitter</a>
+        </div>
+    `;
+
+    qrContainer.insertAdjacentHTML('beforeend', shareOptionsHtml);
+}
 
 function isEmptyInput() {
     qrText.value.length > 0 ? generateQRCode() : alert("Enter the text or URL to generate your QR code");
