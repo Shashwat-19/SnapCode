@@ -1,0 +1,128 @@
+:root{
+    --bcg-color: #001122;
+    --primary-color: #8200d3;
+    --border-radius: 8px;
+    --secondary-color: #fff;
+    --border-color: #7fb7c9;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bcg-color);
+}
+
+.box{
+    background-color: var(--primary-color);
+    padding: 30px;
+    width: 400px;
+    border-radius: var(--border-radius);
+}
+
+.qr-header h1{
+    font-size: 26px;
+    text-align: center;
+    color: var(--secondary-color);
+    margin-bottom: 24px;
+    text-transform: uppercase;
+}
+
+.qr-header input{
+    width: 100%;
+    margin-block: 12px;
+}
+
+.qr-header input, select{
+    padding: 8px;
+    border-radius: var(--border-radius);
+    font-size: 18px;
+    outline: none;
+    border: 2px solid var(--border-color);
+}
+
+.qr-header label{
+    color: var(--secondary-color);
+    font-size: 20px;
+}
+
+.qr-header div{
+    display: flex;
+    justify-content: space-between;
+}
+
+.qr-footer{
+    display: flex;
+    justify-content: center;
+}
+.qr-footer a{
+    background-color: var(--secondary-color);
+    text-decoration: none;
+    font-size: 20px;
+    padding: 14px 46px;
+    margin-inline: 2px;
+    color: black;
+    font-weight: 600;
+    border-radius: var(--border-radius);
+}
+
+.qr-body{
+    display: grid;
+    place-items: center;
+    padding:20px;
+    margin-bottom: 20px;
+}
+
+.qr-body img{
+    max-width: 100%;
+    max-height: 100%;
+    margin-block: 10px;
+    padding: 20px;
+    border: 0.5px solid var(--border-color);
+    border-radius: var(--border-radius);
+}
+
+@media screen and (max-width:520px){
+    .box{
+        width: 80%;
+    }
+    .qr-footer a{
+        padding: 12px;
+        font-size: 16px;
+    }
+}
+
+#generateBtn, #downloadBtn , #shareBtn{
+    transition: transform 0.3s ease;
+}
+
+#generateBtn:hover, #downloadBtn:hover, #shareBtn:hover {
+    transform: scale(1.1);
+}
+
+.qr-footer {
+    display: flex;
+    justify-content: center;
+    gap: 8px; /* Adds consistent spacing between buttons */
+    flex-wrap: wrap; /* Ensures buttons wrap on smaller screens */
+}
+
+@media screen and (max-width: 520px) {
+    .box {
+        width: 90%; /* Slightly larger width for better usability */
+    }
+    .qr-footer a {
+        padding: 10px;
+        font-size: 16px; /* Smaller font size for mobile */
+        width: calc(33% - 10px); /* Ensures buttons fit neatly in one row */
+        text-align: center; /* Ensures text stays centered */
+    }
+}
