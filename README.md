@@ -1,6 +1,12 @@
-# SnapCode 📱
+# SnapCode 🔳📱
 
 Welcome to **SnapCode** – a simple QR code generator built with HTML, CSS, and JavaScript! This tool allows users to generate QR codes from URLs or text, which can be easily scanned using any QR code reader.
+
+---
+
+## 📦 Latest Release: [v0.1-beta](https://github.com/Shashwat-19/SnapCode/releases/tag/v0.1-beta)  
+SnapCode v0.1-beta is now live! 🎉  
+This is the initial beta release with essential features to get you started with QR code generation.
 
 ---
 
@@ -44,6 +50,16 @@ Welcome to **SnapCode** – a simple QR code generator built with HTML, CSS, and
 
 ---
 
+## 🔄 What's Next?
+
+In future releases, we plan to:
+
+- Add a **History** feature to track previously generated QR codes for easy reuse.
+- Enhance error handling for invalid inputs.
+- Improve the user interface for a smoother experience.
+
+---
+
 ## 🔒 License
 
 Copyright (C) 2023-2025 Shashwat  
@@ -59,4 +75,4 @@ BCA (Hons), Christ University, Bangalore
 
 ---
 
-**SnapCode** – Your QR code generation tool! 📱
+**SnapCode** – Your QR code generation tool! 🔳📱
