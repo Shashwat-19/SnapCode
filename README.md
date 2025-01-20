@@ -1,4 +1,4 @@
-# SnapCode 🔳📱
+# SnapCode 📱
 
 Welcome to **SnapCode** – a simple QR code generator built with HTML, CSS, and JavaScript! This tool allows users to generate QR codes from URLs or text, which can be easily scanned using any QR code reader.
 
