@@ -50,16 +50,6 @@ This is the initial beta release with essential features to get you started with
 
 ---
 
-## 🔄 What's Next?
-
-In future releases, we plan to:
-
-- Add a **History** feature to track previously generated QR codes for easy reuse.
-- Enhance error handling for invalid inputs.
-- Improve the user interface for a smoother experience.
-
----
-
 ## 🔒 License
 
 Copyright (C) 2023-2025 Shashwat  
