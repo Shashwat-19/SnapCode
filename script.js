@@ -88,6 +88,10 @@ function saveToHistory(text) {
     let history = JSON.parse(localStorage.getItem('qrHistory')) || [];
     if (!history.includes(text)) {
         history.push(text);
+        // Keep only the last two entries in localStorage
+        if (history.length > 2) {
+            history = history.slice(-2);
+        }
         localStorage.setItem('qrHistory', JSON.stringify(history));
     }
     displayHistory();
@@ -100,8 +104,10 @@ function loadHistory() {
 
 function displayHistory() {
     const history = JSON.parse(localStorage.getItem('qrHistory')) || [];
-    historyContainer.innerHTML = history.length
-        ? `<h3>Generated QR Code History</h3><ul>${history
+    const recentHistory = history.slice(-2); // Show only the last two entries
+
+    historyContainer.innerHTML = recentHistory.length
+        ? `<h3>Generated QR Code History</h3><ul>${recentHistory
               .map((item) => `<li><a href="${item}" target="_blank">${item}</a></li>`)
               .join('')}</ul>`
         : '<h3>No history available</h3>';

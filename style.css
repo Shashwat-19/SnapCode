@@ -198,3 +198,16 @@ body{
         font-size: 12px;
     }
 }
+
+.history-link {
+    word-break: break-word; 
+    white-space: normal;    
+    display: inline-block; 
+    max-width: 100%;        
+    text-decoration: none;  
+    color: #007bff;         
+}
+.history-link:hover {
+    text-decoration: underline; 
+}
+
