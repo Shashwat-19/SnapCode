@@ -4,16 +4,15 @@ const generateBtn = document.getElementById('generateBtn');
 const downloadBtn = document.getElementById('downloadBtn');
 const shareBtn = document.getElementById('shareBtn'); // New Share button
 const qrContainer = document.querySelector('.qr-body');
+const historyContainer = document.getElementById('history-container'); // For displaying history
 
-let size = sizes.value;
+let size = 200; // Default QR code size
+
+// Load history on page load
+window.addEventListener('load', loadHistory);
 
 generateBtn.addEventListener('click', (e) => {
     e.preventDefault();
-    isEmptyInput();
-});
-
-sizes.addEventListener('change', (e) => {
-    size = e.target.value;
     isEmptyInput();
 });
 
@@ -28,7 +27,6 @@ downloadBtn.addEventListener('click', () => {
     }
 });
 
-// Add event listener for Share button
 shareBtn.addEventListener('click', async (e) => {
     e.preventDefault();
 
@@ -56,48 +54,55 @@ shareBtn.addEventListener('click', async (e) => {
                 alert('Failed to share the QR code.');
             }
         } else {
-            showCustomShareOptions();
+            alert('Sharing is not supported on this device.');
         }
     });
 });
 
-function showCustomShareOptions() {
-    const text = qrText.value.trim();
-    const urlEncodedText = encodeURIComponent(text);
-
-    const whatsappUrl = `https://wa.me/?text=${urlEncodedText}`;
-    const linkedinUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${urlEncodedText}`;
-    const twitterUrl = `https://twitter.com/intent/tweet?text=${urlEncodedText}`;
-
-    const shareOptionsHtml = `
-        <div class="share-options">
-            <a href="${whatsappUrl}" target="_blank">Share on WhatsApp</a><br>
-            <a href="${linkedinUrl}" target="_blank">Share on LinkedIn</a><br>
-            <a href="${twitterUrl}" target="_blank">Share on Twitter</a>
-        </div>
-    `;
-
-    qrContainer.insertAdjacentHTML('beforeend', shareOptionsHtml);
-}
-
 function isEmptyInput() {
-    qrText.value.length > 0 ? generateQRCode() : alert("Enter the text or URL to generate your QR code");
+    qrText && qrText.value.length > 0 ? generateQRCode() : alert("Enter the text or URL to generate your QR code");
 }
 
 function generateQRCode() {
-    let text = qrText.value.trim();
-    
+    let text = qrText ? qrText.value.trim() : '';
+
     // Check if the input is a valid URL
     if (!text.startsWith('http://') && !text.startsWith('https://')) {
         text = 'https://' + text;
     }
 
     qrContainer.innerHTML = "";
-    new QRCode(qrContainer, {
+    const qrCode = new QRCode(qrContainer, {
         text: text,
         height: size,
         width: size,
         colorLight: "#fff",
         colorDark: "#000",
     });
+
+    saveToHistory(text); // Save the generated QR code to history
+}
+
+// Save the QR code text to localStorage
+function saveToHistory(text) {
+    let history = JSON.parse(localStorage.getItem('qrHistory')) || [];
+    if (!history.includes(text)) {
+        history.push(text);
+        localStorage.setItem('qrHistory', JSON.stringify(history));
+    }
+    displayHistory();
+}
+
+// Load and display the history from localStorage
+function loadHistory() {
+    displayHistory();
+}
+
+function displayHistory() {
+    const history = JSON.parse(localStorage.getItem('qrHistory')) || [];
+    historyContainer.innerHTML = history.length
+        ? `<h3>Generated QR Code History</h3><ul>${history
+              .map((item) => `<li><a href="${item}" target="_blank">${item}</a></li>`)
+              .join('')}</ul>`
+        : '<h3>No history available</h3>';
 }

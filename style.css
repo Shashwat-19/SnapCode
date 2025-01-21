@@ -111,18 +111,90 @@ body{
 .qr-footer {
     display: flex;
     justify-content: center;
-    gap: 8px; /* Adds consistent spacing between buttons */
-    flex-wrap: wrap; /* Ensures buttons wrap on smaller screens */
+    gap: 8px; 
+    flex-wrap: wrap; 
 }
 
 @media screen and (max-width: 520px) {
     .box {
-        width: 90%; /* Slightly larger width for better usability */
+        width: 90%; 
     }
     .qr-footer a {
         padding: 10px;
-        font-size: 16px; /* Smaller font size for mobile */
-        width: calc(33% - 10px); /* Ensures buttons fit neatly in one row */
-        text-align: center; /* Ensures text stays centered */
+        font-size: 16px; 
+        width: calc(33% - 10px); 
+        text-align: center; 
+    }
+}
+
+
+.qr-history {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    max-width: 100%;
+    word-wrap: break-word; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+}
+
+.qr-history h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    text-align: center; 
+}
+
+.qr-history ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column; 
+    gap: 10px;
+}
+
+.qr-history li {
+    margin-bottom: 5px;
+    text-align: center; 
+}
+
+.qr-history a {
+    text-decoration: none;
+    color: #007BFF;
+    font-size: 14px; 
+    transition: color 0.3s ease;
+}
+
+.qr-history a:hover {
+    text-decoration: underline;
+    color: #0056b3;
+}
+
+/* Media queries for responsiveness */
+@media (min-width: 768px) {
+    .qr-history ul {
+        flex-direction: row; 
+        flex-wrap: wrap; 
+        justify-content: center; 
+        gap: 20px; 
+    }
+
+    .qr-history a {
+        font-size: 16px; 
+    }
+}
+
+@media (max-width: 480px) {
+    .qr-history {
+        padding: 5px;
+        font-size: 14px; 
+    }
+
+    .qr-history h3 {
+        font-size: 14px;
+    }
+
+    .qr-history a {
+        font-size: 12px;
     }
 }
