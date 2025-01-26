@@ -17,6 +17,8 @@ This is the initial beta release with essential features to get you started with
 - **Mobile Responsive** – Works on both desktop and mobile devices.
 - **Easy Copy & Share** – Copy QR codes to clipboard for easy sharing.
 - **No Backend Required** – Completely client-side, no server needed.
+- **History of Generated QR Codes** – View the list of previously generated QR codes.
+- **Reset Button** – Clear the generated QR code and history with a single click.
 
 ---
 
@@ -39,6 +41,8 @@ This is the initial beta release with essential features to get you started with
 2. **Click on "Generate QR Code"** to create the QR code.
 3. The **generated QR code** will appear on the screen, ready to be scanned.
 4. You can **copy the QR code** to share it or use it.
+5. **History Section** – View previously generated QR codes.
+6. Use the **Reset Button** to clear the current QR code and history.
 
 ---
 
@@ -46,7 +50,7 @@ This is the initial beta release with essential features to get you started with
 
 - **HTML** – Structure of the page
 - **CSS** – Styling for responsiveness and design
-- **JavaScript** – Logic for QR code generation
+- **JavaScript** – Logic for QR code generation and handling history/reset
 
 ---
 
