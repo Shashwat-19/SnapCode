@@ -112,3 +112,28 @@ function displayHistory() {
               .join('')}</ul>`
         : '<h3>No history available</h3>';
 }
+
+resetBtn.addEventListener('click', (e) => {
+    e.preventDefault(); // Prevent default anchor behavior
+
+    // Clear the QR text input
+    if (qrText) qrText.value = '';
+
+    // Clear the QR container
+    qrContainer.innerHTML = '';
+
+    // Reset the history display
+    historyContainer.innerHTML = '<h3>No history available</h3>';
+
+    // Clear localStorage
+    localStorage.removeItem('qrHistory');
+
+    // Show the reset notification
+    const notification = document.getElementById('reset-notification');
+    notification.style.display = 'block';
+
+    // Hide the notification after 3 seconds
+    setTimeout(() => {
+        notification.style.display = 'none';
+    }, 2000); // Adjust time as needed
+});
